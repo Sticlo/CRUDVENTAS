@@ -1,34 +1,36 @@
-
 package Modelo;
 
-
-public class Empleado {
-    int id;
+/**
+ *
+ * @author PC
+ */
+public class Cliente {
+    String id;
     String dni;
     String nom;
-    String tel;
+    String direccion;
     String estado;
-    String user;
-
-    public Empleado() {
+    
+    public Cliente(){
     }
 
-    public Empleado(int id, String dni, String nom, String tel, String estado, String user) {
+    public Cliente(String id, String dni, String nom, String direccion, String estado) {
         this.id = id;
         this.dni = dni;
         this.nom = nom;
-        this.tel = tel;
+        this.direccion = direccion;
         this.estado = estado;
-        this.user = user;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
+
+    
 
     public String getDni() {
         return dni;
@@ -46,12 +48,12 @@ public class Empleado {
         this.nom = nom;
     }
 
-    public String getTel() {
-        return tel;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getEstado() {
@@ -61,13 +63,6 @@ public class Empleado {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
+    
     
 }
