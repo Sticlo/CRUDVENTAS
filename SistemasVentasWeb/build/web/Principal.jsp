@@ -42,7 +42,7 @@
                     <img src="img/user.jpg" alt="60" width="60" />
                 </a>
                 <a class="dropdown-item" href="#">${usuario.getUser()}</a>
-                <a class="dropdown-item" href="#">usuario@gmail.com</a>
+                <a class="dropdown-item" href="#">${usuario.getUser()}@gmail.com</a>
                 <div class="dropdown-divider"></div>
                 <form action="Validar" method="POST">
                     <button name="accion" value="Salir" class="dropdown-item" href="#">Salir</button>

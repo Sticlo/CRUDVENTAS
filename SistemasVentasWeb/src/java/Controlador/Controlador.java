@@ -136,13 +136,12 @@ public class Controlador extends HttpServlet {
                         cl.setDni(dni);
                         cl=cdao.buscar(dni);
                         request.setAttribute("c", cl);
-                        JOptionPane.showMessageDialog(null, "si ingreso al if");
                         break;
                     default:
                         request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
                 }
                 request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
-                JOptionPane.showMessageDialog(null, "No tomo el if");
+                
             }
     }
 
