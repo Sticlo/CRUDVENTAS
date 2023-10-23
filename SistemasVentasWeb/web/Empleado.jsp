@@ -14,22 +14,22 @@
                     <form>
                         <div class="form-group">
                             <label>Cedula</label>
-                            <input type="text" name="txtCedula" class="form-control">
+                            <input type="text" name="txtDni" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Nombre</label>
-                            <input type="text" name="txtNombre" class="form-control">
+                            <input type="text" name="txtNombres" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Telefono</label>
-                            <input type="text" name="txtTelefono" class="form-control">
+                            <input type="text" name="txtTel" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Estado</label>
-                            <input type="text" name="txtEstado" class="form-control">
+                            <input type="text" name="txtestado" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Usuarios</label>
+                            <label>Usuario</label>
                             <input type="text" name="txtUsuario" class="form-control">
                         </div>
                         <input type="submit" name="accion" values="Agregar" class="btn btn-info">
