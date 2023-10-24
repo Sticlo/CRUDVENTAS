@@ -1,13 +1,13 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>JSP Page</title>
+    <title>Parcial 2</title>
 </head>
 
 <body>
@@ -39,10 +39,10 @@
             </button>
             <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">
-                    <img src="img/user.jpg" alt="60" width="60" />
+                   <img src="img/usuario.png" alt="60" width="60" />
                 </a>
                 <a class="dropdown-item" href="#">${usuario.getUser()}</a>
-                <a class="dropdown-item" href="#">${usuario.getUser()}@gmail.com</a>
+                <a class="dropdown-item" href="#">usuario@gmail.com</a>
                 <div class="dropdown-divider"></div>
                 <form action="Validar" method="POST">
                     <button name="accion" value="Salir" class="dropdown-item" href="#">Salir</button>

@@ -1,15 +1,23 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Ventas</title>
+        
+        <style>
+            @media print{
+                .parte01, .btn, .accion{
+                    display: none;
+                }
+            }
+        </style>
+        
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
         <div class="d-flex">
-            <div class="col-sm-5">
+            <div class="col-sm-5 parte01">
                 <div class="card">
                     <form action="Controlador?menu=NuevaVenta" method="POST">
                         <div class="card-body">
@@ -18,11 +26,11 @@
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="codigocliente" value="${c.getDni()}" class="form-control" placeholder="codigo">
+                                    <input type="text" name="codigocliente" value="${c.getDni()}" class="form-control" placeholder="Código">
                                     <input type="submit" name="accion" value="BuscarCliente" class="btn btn-outline-info">
                                 </div>
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="nombrescliente" value="${c.getNom()}" placeholder="Datos cliente" class="form-control">
+                                    <input type="text" name="nombrescliente" value="${c.getNom()}" placeholder="Datos Cliente" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -30,27 +38,29 @@
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="codigoproducto" class="form-control" placeholder="codigo">
-                                    <input type="submit" name="accion" value="Buscar" class="btn btn-outline-info">
+                                    <input type="text" name="codigoproducto" class="form-control" value="${producto.getId()}" placeholder="Código">
+                                    <button type="submit" name="accion" value="BuscarProducto" class="btn btn-outline-info">Buscar</button>
                                 </div>
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="nombrescliente" placeholder="Datos cliente" class="form-control">
+                                    <input type="text" name="nomproducto" value="${producto.getNom()}" placeholder="Datos Producto" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="precio" class="form-control" placeholder="$/.0.00">
-                                    
+                                    <input type="text" name="precio" value="${producto.getPrecio()}" class="form-control" placeholder="$/.0.00">
+
                                 </div>
                                 <div class="col-sm-3 d-flex">
-                                    <input type="number" name="cant" placeholder="" class="form-control">
+                                    <input type="number" name="cant" value="1" placeholder="" class="form-control">
                                 </div>
                                 <div class="col-sm-3 d-flex">
-                                    <input type="text" name="stock" placeholder="stock" class="form-control">
+                                    <input type="text" name="stock" value="${producto.getStock()}" placeholder="Stock" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="accion" value="Agregar" class="btn btn-outline-info">
+                                <div class="col-sm">
+                                    <button type="submit" name="accion" value="Agregar" class="btn btn-outline-info">Agregar</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -60,38 +70,54 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex col-sm-5 ml-auto">
-                            <label>Nro.Serie: </label>
-                            <input type="text" name="NroSerie" class="form-control">
+                            <label>Nro.Serie:  </label>
+                            <input type="text" name="NroSerie" value="${nserie}" class="form-control">
                         </div>
                         <br>
                         <table class="table table-hover">
                             <thead>
-                                <tr>
+                                <tr class="text-center">
                                     <th>Nro</th>
-                                    <th>Codigo</th>
-                                    <th>Descripcion</th>
+                                    <th>Código</th>
+                                    <th>Descripción</th>
                                     <th>Precio</th>
                                     <th>Cantidad</th>
                                     <th>SubTotal</th>
-                                    <th>Acciones</th>
+                                    <th class="accion">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <%@page import="java.util.List"%>
+                                <%@page import="Modelo.Venta" %>
+                                <%
+                                List<Venta> ventas = (List<Venta>) request.getAttribute("lista");
+                                if(ventas!=null){
+                                for(Venta v: ventas){
+                                %>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><%=v.getItem()%></td>
+                                    <td><%=v.getIdproducto()%></td>
+                                    <td><%=v.getDescripcionP()%></td>
+                                    <td><%=v.getPrecio()%></td>
+                                    <td><%=v.getCantidad()%></td>
+                                    <td><%=v.getSubtotal()%></td>
+                                    <td class="d-flex">
+                                        <a class="btn btn-warning" href="#">Editar</a>
+                                        <a class="btn btn-danger" href="#" style="margin-left: 10px ">Borrar</a>
+                                    </td>
                                 </tr>
+                                <%}
+                                  }%>
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer">
-                        <div>
-                            <input type="submit" name="accion" value="Generar Venta" class="btn btn-success">
+                    <div class="card-footer d-flex">
+                        <div class="col-sm-6">
+                            <a href="Controlador?menu=NuevaVenta&accion=GenerarVenta" onclick="print()" class="btn btn-info">Generar Venta</a>
                             <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
+                        </div>
+                        <div class="co-sm-4 ml-auto">
+                            <input type="text" name="txttotal" value="$/. ${totalpagar}" class="form-control">
                         </div>
                     </div>
                 </div>

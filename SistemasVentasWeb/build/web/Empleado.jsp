@@ -1,3 +1,9 @@
+<%-- 
+    Document   : empleado
+    Created on : 18/10/2023, 4:59:10 p. m.
+    Author     : Estudiante
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -63,7 +69,7 @@
                             <td><%=em.getTel()%></td>
                             <td><%=em.getEstado()%></td>
                             <td><%=em.getUser()%></td>
-                            <<td>
+                            <td>
                                 <a class="btn btn-warning" href="Controlador?menu=Empleado&accion=Editar&id=<%=em.getId()%>">Editar</a>
                                 <a class="btn btn-danger" href="Controlador?menu=Empleado&accion=Delete&id=<%=em.getId()%>">Delete</a>
                             </td>
@@ -80,4 +86,4 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
-</html> 
+</html>

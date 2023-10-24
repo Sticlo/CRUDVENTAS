@@ -1,17 +1,14 @@
 package Modelo;
 
-/**
- *
- * @author PC
- */
 public class Cliente {
+
     String id;
     String dni;
     String nom;
     String direccion;
     String estado;
-    
-    public Cliente(){
+
+    public Cliente() {
     }
 
     public Cliente(String id, String dni, String nom, String direccion, String estado) {
@@ -29,8 +26,6 @@ public class Cliente {
     public void setId(String id) {
         this.id = id;
     }
-
-    
 
     public String getDni() {
         return dni;
@@ -63,6 +58,5 @@ public class Cliente {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    
+
 }

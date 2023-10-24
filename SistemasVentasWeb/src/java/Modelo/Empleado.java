@@ -1,8 +1,7 @@
-
 package Modelo;
 
-
 public class Empleado {
+
     int id;
     String dni;
     String nom;
@@ -69,5 +68,5 @@ public class Empleado {
     public void setUser(String user) {
         this.user = user;
     }
-    
+
 }

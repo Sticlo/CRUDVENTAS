@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package Controlador;
 
 import Modelo.Empleado;
@@ -14,10 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author PC
- */
 public class Validar extends HttpServlet {
 
     EmpleadoDAO edao = new EmpleadoDAO();
