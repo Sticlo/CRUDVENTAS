@@ -1,5 +1,13 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="Modelo.Empleado" %>
+<%
+    HttpSession sesion = (HttpSession)request.getSession();
+    Empleado emp = (Empleado)sesion.getAttribute("usuario");
+    if (emp == null) {
+        response.sendRedirect("index.jsp");
+    }else{
+            
+%>  
 <!DOCTYPE html>
 <html lang="es">
 
@@ -24,7 +32,7 @@
                     <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
                 </li>
                 <li class="nav-item">
-                    <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="Controlador?menu=Clientes" target="myFrame">Clientes</a>
+                    <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="Controlador?menu=Clientes&accion=Listar" target="myFrame">Clientes</a>
                 </li>
                 <li class="nav-item">
                     <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="Controlador?menu=NuevaVenta&accion=default" target="myFrame">Nueva venta</a>
@@ -39,7 +47,7 @@
             </button>
             <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">
-                   <img src="img/usuario.png" alt="60" width="60" />
+                   <img src="https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg?w=740" alt="60" width="60" />
                 </a>
                 <a class="dropdown-item" href="#">${usuario.getUser()}</a>
                 <a class="dropdown-item" href="#">usuario@gmail.com</a>
@@ -59,3 +67,4 @@
 </body>
 
 </html>
+<%}%>
