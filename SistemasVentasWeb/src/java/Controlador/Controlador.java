@@ -16,6 +16,7 @@ import java.util.Base64;
 import java.util.List;
 import javax.swing.JOptionPane;
 
+
 public class Controlador extends HttpServlet {
 
     Empleado em=new Empleado();
@@ -66,8 +67,8 @@ public class Controlador extends HttpServlet {
                         break;
                     case "Editar":
                         ide=Integer.parseInt(request.getParameter("id"));
-                       // Cliente c=cdao.listarId(ide);    
-                       // request.setAttribute("cliente",c);
+                        Cliente c=cdao.listarId(ide);    
+                        request.setAttribute("cliente",c);
                         request.getRequestDispatcher("Controlador?menu=Clientes&accion=Listar").forward(request,response);
                         break;
                     case "Delete":
@@ -142,7 +143,7 @@ public class Controlador extends HttpServlet {
                     default:
                         throw new AssertionError();
                 }
-            request.getRequestDispatcher("empleado.jsp").forward(request, response);
+            request.getRequestDispatcher("Empleado.jsp").forward(request, response);
             }
             if(menu.equals("Producto")){
                  switch(accion){

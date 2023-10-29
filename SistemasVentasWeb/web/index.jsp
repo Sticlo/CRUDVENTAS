@@ -13,7 +13,7 @@
                     <form action="Validar" class="form-sign" method="POST">
                         <div class="form-group">
                             <h3>INICIO</h3>
-                            <img src="img/ventas.jpg" alt="Logo" width="170" class="img-fluid" />
+                            <img src="img/ventas.jpg" alt="Logo" width="300" class="img-fluid" />
                             <p class="text-muted">BIENVENIDOS AL SISTEMA</p>
                         </div>
                         <div class="form-group">

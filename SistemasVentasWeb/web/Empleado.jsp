@@ -1,16 +1,20 @@
-<%-- 
-    Document   : empleado
-    Created on : 18/10/2023, 4:59:10 p. m.
-    Author     : Estudiante
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="Modelo.Empleado" %>
+<%
+    HttpSession sesion = (HttpSession)request.getSession();
+    Empleado emp = (Empleado)sesion.getAttribute("usuario");
+    if (emp == null) {
+        response.sendRedirect("index.jsp");
+    }else{
+            
+%>        
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Empleado</title>
     </head>
     <body>
         <div class="d-flex">
@@ -19,7 +23,7 @@
                     <form action="Controlador?menu=Empleado" method="POST">
                     <form>
                         <div class="form-group">
-                            <label>Dni</label>
+                            <label>DNI</label>
                             <input type="text" value="${empleado.getDni()}" name="txtDni" class="form-control">
                         </div>
                         <div class="form-group">
@@ -27,7 +31,7 @@
                             <input type="text" value="${empleado.getNom()}"  name="txtNombres" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Telefono</label>
+                            <label>Teléfono</label>
                             <input type="text" value="${empleado.getTel()}"  name="txtTel" class="form-control">
                         </div>
                         <div class="form-group">
@@ -37,6 +41,10 @@
                         <div class="form-group">
                             <label>Usuario</label>
                             <input type="text" value="${empleado.getUser()}" name="txtUsuario" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="text" value="${empleado.getContrasena()}" name="txtContrasena" class="form-control">
                         </div>
                         <input type="submit" name="accion" value="Agregar" class="btn btn-info">
                         <input type="submit" name="accion" value="Actualizar" class="btn btn-info">
@@ -49,15 +57,13 @@
                         <tr>
                             <th>DNI</th>
                             <th>NOMBRE</th>
-                            <th>TELEFONO</th>
+                            <th>TELÉFONO</th>
                             <th>ESTADO</th>
                             <th>USER</th>
                             <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <%@page import="java.util.List"%>
-                        <%@page import="Modelo.Empleado" %>
                         <%
                         List<Empleado> empleados = (List<Empleado>) request.getAttribute("empleados");
                         if(empleados!=null){
@@ -87,3 +93,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>
+<%}%>
